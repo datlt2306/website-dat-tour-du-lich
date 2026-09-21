@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên Hệ Tư Vấn - VietTour</title>
+    <meta name="description" content="Liên hệ với đội ngũ chuyên viên tư vấn du lịch VietTour để được trợ giúp 24/7." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header" id="site-header"></header>
+
+    <main>
+      <section class="about-hero">
+        <div class="container">
+          <span class="subtitle">Kết Nối Với VietTour</span>
+          <h1 class="section-title">Chúng Tôi Luôn Sẵn Sàng Hỗ Trợ Bạn</h1>
+          <p class="section-desc">Gửi yêu cầu hoặc thắc mắc của bạn, đội ngũ chuyên viên sẽ liên hệ lại trong vòng 15 phút.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info-card">
+              <div>
+                <h3>Thông Tin Liên Hệ</h3>
+                <p style="opacity: 0.9;">Ghé thăm văn phòng hoặc liên hệ trực tiếp qua hotline của chúng tôi.</p>
+                
+                <ul class="contact-info-list">
+                  <li class="contact-item">
+                    <div class="item-icon">📍</div>
+                    <div>
+                      <strong>Địa chỉ trụ sở:</strong>
+                      <p style="font-size: 0.9rem; opacity: 0.9;">Tầng 8, Tòa nhà VietTour, 123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="item-icon">📞</div>
+                    <div>
+                      <strong>Hotline 24/7:</strong>
+                      <p style="font-size: 0.9rem; opacity: 0.9;">1900 6868 - 0908 123 456</p>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <div class="item-icon">✉️</div>
+                    <div>
+                      <strong>Email tư vấn:</strong>
+                      <p style="font-size: 0.9rem; opacity: 0.9;">hotro@viettour.vn</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                <p style="font-size: 0.85rem; opacity: 0.8;">Thời gian làm việc: 08:00 - 20:00 (Thứ 2 - Chủ Nhật)</p>
+              </div>
+            </div>
+
+            <div class="contact-form-wrap">
+              <h3 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem;">Gửi Lời Nhắn Tư Vấn</h3>
+              
+              <form id="contact-form">
+                <div class="form-group">
+                  <label for="contact-name">Họ và tên *</label>
+                  <input type="text" id="contact-name" required placeholder="Nguyễn Văn A" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-email">Địa chỉ Email *</label>
+                  <input type="email" id="contact-email" required placeholder="nguyenvana@gmail.com" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-phone">Số điện thoại *</label>
+                  <input type="tel" id="contact-phone" required placeholder="0901234567" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message">Nội dung thắc mắc / Tour quan tâm *</label>
+                  <textarea id="contact-message" required placeholder="Tôi muốn tư vấn tour Phú Quốc 4 ngày 3 đêm cho gia đình 4 người..." class="form-control"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                  🚀 Gửi Yêu Cầu Tư Vấn
+                </button>
+              </form>
+
+              <div id="contact-toast-container"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <script type="module" src="/src/pages/contact.js"></script>
+  </body>
+</html>

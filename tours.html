@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh Sách Tour Du Lịch - VietTour</title>
+    <meta name="description" content="Tìm kiếm và chọn lựa hàng trăm tour du lịch biển, núi, di sản chất lượng tốt nhất cùng VietTour." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header" id="site-header"></header>
+
+    <main style="padding: 3rem 0 5rem;">
+      <div class="container">
+        <div class="section-title-wrap" style="margin-bottom: 2.5rem;">
+          <span class="subtitle">Khám Phá Điểm Đến</span>
+          <h1 class="section-title">Danh Sách Tour Du Lịch Hấp Dẫn</h1>
+          <p class="section-desc">Lọc tour theo nhu cầu của bạn và đặt chỗ nhanh chóng trực tuyến.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="tour-filter-bar">
+          <div class="search-field" style="border-right: none;">
+            <label>Tìm Theo Từ Khóa</label>
+            <input type="text" id="filter-keyword" placeholder="Nhập tên tour hoặc địa điểm..." class="form-control" style="border: 1px solid var(--gray-200);" />
+          </div>
+
+          <div class="search-field" style="border-right: none;">
+            <label>Loại Hình</label>
+            <select id="filter-category" class="form-control" style="border: 1px solid var(--gray-200);">
+              <option value="all">Tất cả loại hình</option>
+              <option value="bien-dao">Biển đảo</option>
+              <option value="nui-rung">Núi rừng</option>
+              <option value="van-hoa">Văn hóa & Di sản</option>
+              <option value="sinh-thai">Sinh thái</option>
+            </select>
+          </div>
+
+          <div class="search-field" style="border-right: none;">
+            <label>Sắp Xếp</label>
+            <select id="filter-sort" class="form-control" style="border: 1px solid var(--gray-200);">
+              <option value="default">Mặc định</option>
+              <option value="price-asc">Giá: Thấp đến Cao</option>
+              <option value="price-desc">Giá: Cao đến Thấp</option>
+              <option value="rating">Đánh giá cao nhất</option>
+            </select>
+          </div>
+
+          <button id="reset-filter-btn" class="btn btn-outline" style="align-self: flex-end; padding: 0.75rem 1rem;">
+            🔄 Xóa Bộ Lọc
+          </button>
+        </div>
+
+        <!-- Tour Cards Grid Container -->
+        <div class="tours-grid" id="tours-list-container">
+          <!-- Rendered dynamically by src/pages/tours.js -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <script type="module" src="/src/pages/tours.js"></script>
+  </body>
+</html>
