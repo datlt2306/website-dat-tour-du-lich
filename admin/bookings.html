@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Đơn Đặt Tour - VietTour Admin</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/admin/admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+      <!-- Sidebar Container -->
+      <div id="admin-sidebar-container"></div>
+
+      <!-- Main Section -->
+      <div class="admin-main">
+        <!-- Topbar Container -->
+        <div id="admin-topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="admin-content">
+          <div class="page-header">
+            <div>
+              <h1>Quản Lý Đơn Đặt Tour</h1>
+              <p>Theo dõi yêu cầu đặt vé của khách, phê duyệt đơn cọc và xử lý trạng thái thanh toán.</p>
+            </div>
+          </div>
+
+          <!-- Table Card -->
+          <div class="table-card">
+            <div class="table-header">
+              <h2>Danh Sách Đơn Đặt Chỗ</h2>
+              <div class="table-filter-group">
+                <input 
+                  type="text" 
+                  id="booking-search" 
+                  class="form-control" 
+                  placeholder="🔍 Tìm tên, SĐT, mã đơn..." 
+                  style="width: 250px;" 
+                />
+                <select id="booking-status-filter" class="form-control" style="width: 170px;">
+                  <option value="all">Tất cả trạng thái</option>
+                  <option value="pending">Chờ duyệt (Pending)</option>
+                  <option value="confirmed">Đã duyệt (Confirmed)</option>
+                  <option value="cancelled">Đã hủy (Cancelled)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Mã Đơn</th>
+                    <th>Khách Hàng</th>
+                    <th>Tour Đã Chọn</th>
+                    <th>Số Khách</th>
+                    <th>Tổng Tiền</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody id="bookings-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/src/admin/manage-bookings.js"></script>
+  </body>
+</html>

@@ -30,6 +30,7 @@ export function renderNavbar(activePage = 'home') {
         </ul>
 
         <div class="nav-actions">
+          <a href="/admin/index.html" class="btn btn-outline btn-sm" style="margin-right: 0.25rem;">⚙️ Quản trị</a>
           <a href="/tours.html" class="btn btn-primary btn-sm">Đặt Tour Ngay</a>
           <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
             ☰

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Tour - VietTour Admin</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/admin/admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+      <!-- Sidebar Container -->
+      <div id="admin-sidebar-container"></div>
+
+      <!-- Main Section -->
+      <div class="admin-main">
+        <!-- Topbar Container -->
+        <div id="admin-topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="admin-content">
+          <div class="page-header">
+            <div>
+              <h1>Quản Lý Tour Du Lịch</h1>
+              <p>Danh sách các gói tour đang mở bán. Bạn có thể thêm tour mới, cập nhật giá hoặc gỡ tour.</p>
+            </div>
+            <div>
+              <button class="btn-admin btn-admin-primary" id="btn-open-add-modal">
+                <span>➕ Thêm Tour Mới</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Table Card -->
+          <div class="table-card">
+            <div class="table-header">
+              <h2>Danh Sách Tour</h2>
+              <div class="table-filter-group">
+                <input 
+                  type="text" 
+                  id="tour-search" 
+                  class="form-control" 
+                  placeholder="🔍 Tìm tên tour, địa điểm..." 
+                  style="width: 240px;" 
+                />
+                <select id="tour-category-filter" class="form-control" style="width: 150px;">
+                  <option value="all">Tất cả thể loại</option>
+                  <option value="bien-dao">Biển đảo</option>
+                  <option value="nui-rung">Núi rừng</option>
+                  <option value="van-hoa">Văn hóa</option>
+                  <option value="sinh-thai">Sinh thái</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Ảnh</th>
+                    <th>Tên Tour</th>
+                    <th>Địa Điểm</th>
+                    <th>Thể Loại</th>
+                    <th>Thời Lượng</th>
+                    <th>Giá Tour</th>
+                    <th>Trạng Thái</th>
+                    <th>Hành Động</th>
+                  </tr>
+                </thead>
+                <tbody id="tours-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Modal Form Thêm / Sửa Tour -->
+    <div class="modal-overlay" id="tour-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 id="modal-title">Thêm Tour Mới</h3>
+          <button class="modal-close" id="btn-close-modal">&times;</button>
+        </div>
+        <form id="tour-form">
+          <div class="modal-body">
+            <input type="hidden" id="tour-id" />
+            
+            <div class="form-group">
+              <label for="tour-title">Tên Gói Tour *</label>
+              <input type="text" id="tour-title" class="form-control" placeholder="Ví dụ: Tour Đảo Cô Tô 3N2Đ" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tour-location">Địa Điểm / Tỉnh Thành *</label>
+                <input type="text" id="tour-location" class="form-control" placeholder="Ví dụ: Quảng Ninh" required />
+              </div>
+              <div class="form-group">
+                <label for="tour-category">Thể Loại Tour *</label>
+                <select id="tour-category" class="form-control" required>
+                  <option value="bien-dao">Biển đảo</option>
+                  <option value="nui-rung">Núi rừng</option>
+                  <option value="van-hoa">Văn hóa di sản</option>
+                  <option value="sinh-thai">Sinh thái miệt vườn</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tour-duration">Thời Lượng *</label>
+                <input type="text" id="tour-duration" class="form-control" placeholder="Ví dụ: 3 ngày 2 đêm" required />
+              </div>
+              <div class="form-group">
+                <label for="tour-price">Giá Tour (VNĐ) *</label>
+                <input type="number" id="tour-price" class="form-control" placeholder="Ví dụ: 3500000" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tour-image">Đường dẫn ảnh bìa (URL)</label>
+              <input type="url" id="tour-image" class="form-control" placeholder="https://images.unsplash.com/..." />
+            </div>
+
+            <div class="form-group">
+              <label for="tour-description">Mô tả tóm tắt</label>
+              <textarea id="tour-description" class="form-control" rows="3" placeholder="Điểm nổi bật của tour..."></textarea>
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+              <input type="checkbox" id="tour-hot" style="width: 18px; height: 18px;" />
+              <label for="tour-hot" style="margin-bottom: 0; cursor: pointer;">Đánh dấu là Tour Nổi Bật (HOT)</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-admin btn-admin-outline" id="btn-cancel-modal">Hủy bỏ</button>
+            <button type="submit" class="btn-admin btn-admin-primary">Lưu Thay Đổi</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/src/admin/manage-tours.js"></script>
+  </body>
+</html>

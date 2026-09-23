@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - VietTour</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/admin/admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-layout">
+      <!-- Sidebar Container -->
+      <div id="admin-sidebar-container"></div>
+
+      <!-- Main Section -->
+      <div class="admin-main">
+        <!-- Topbar Container -->
+        <div id="admin-topbar-container"></div>
+
+        <!-- Page Content -->
+        <main class="admin-content">
+          <div class="page-header">
+            <div>
+              <h1>Tổng Quan Báo Cáo</h1>
+              <p>Theo dõi tình hình kinh doanh, số lượng tour và đơn đặt chỗ mới nhất.</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <a href="/admin/tours.html" class="btn-admin btn-admin-primary">
+                <span>+ Quản lý Tour</span>
+              </a>
+              <a href="/admin/bookings.html" class="btn-admin btn-admin-outline">
+                <span>Xem tất cả đơn đặt</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="stats-grid" id="dashboard-stats"></div>
+
+          <div style="display: grid; grid-template-columns: 2fr 1.2fr; gap: 1.5rem;">
+            <!-- Recent Bookings Table Card -->
+            <div class="table-card">
+              <div class="table-header">
+                <h2>Đơn Đặt Tour Mới Nhất</h2>
+                <a href="/admin/bookings.html" class="btn-admin btn-admin-outline btn-admin-sm">Xem tất cả →</a>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Mã Đơn</th>
+                      <th>Khách Hàng</th>
+                      <th>Tên Tour</th>
+                      <th>Ngày Đi</th>
+                      <th>Tổng Tiền</th>
+                      <th>Trạng Thái</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-bookings-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Top Tours Card -->
+            <div class="table-card">
+              <div class="table-header">
+                <h2>Tour Nổi Bật</h2>
+                <a href="/admin/tours.html" class="btn-admin btn-admin-outline btn-admin-sm">Quản lý →</a>
+              </div>
+              <div class="table-responsive">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Ảnh</th>
+                      <th>Tour</th>
+                      <th>Giá</th>
+                      <th>Đánh giá</th>
+                    </tr>
+                  </thead>
+                  <tbody id="top-tours-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="/src/admin/dashboard.js"></script>
+  </body>
+</html>
